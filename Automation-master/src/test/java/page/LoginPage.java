@@ -14,6 +14,9 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@id='nav-signin-tooltip']//span[text()='Sign in']")
 	WebElement signInButtton;
 	
+	@FindBy(id="ap_email")
+	WebElement usernameText;
+	
     public LoginPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
     	//super(driver);
@@ -28,7 +31,8 @@ public class LoginPage {
     }
     
     public void loginCrenditial(WebDriver driver, String username, String password) throws Throwable {
-    	driver.findElement(By.id("ap_email")).sendKeys(username);
+//    	driver.findElement(By.id("ap_email")).sendKeys(username);
+    	usernameText.sendKeys(username);
        driver.findElement(By.id("ap_password")).sendKeys(password);
        driver.findElement(By.id("signInSubmit")).click();   
     }
